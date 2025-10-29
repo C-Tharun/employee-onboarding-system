@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: onboarding-orchestrator
+server:
+  port: 8080
+
+employee:
+  service:
+    url: http://localhost:8081
+document:
+  service:
+    url: http://localhost:8082
+training:
+  service:
+    url: http://localhost:8083
+notification:
+  service:
+    url: http://localhost:8084
+
+
+

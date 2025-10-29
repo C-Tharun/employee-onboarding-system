@@ -1,0 +1,6 @@
+com\example\common\dto\DocumentDto.class
+com\example\common\dto\EmployeeDto.class
+com\example\common\error\ErrorResponse.class
+com\example\common\dto\ApiResponse.class
+com\example\common\dto\NotificationDto.class
+com\example\common\dto\TrainingDto.class

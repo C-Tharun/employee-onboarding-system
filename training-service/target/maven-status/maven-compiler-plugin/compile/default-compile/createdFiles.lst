@@ -1,0 +1,5 @@
+com\example\training\controller\TrainingController.class
+com\example\training\service\TrainingAppService.class
+com\example\training\entity\Training.class
+com\example\training\TrainingServiceApplication.class
+com\example\training\repository\TrainingRepository.class
