@@ -1,2 +1,3 @@
+com\example\orchestrator\config\RestTemplateConfig.class
 com\example\orchestrator\controller\OnboardingController.class
 com\example\orchestrator\OnboardingOrchestratorApplication.class
