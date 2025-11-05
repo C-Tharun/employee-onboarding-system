@@ -1,5 +1,5 @@
-com\example\notification\NotificationServiceApplication.class
-com\example\notification\repository\NotificationRepository.class
 com\example\notification\entity\Notification.class
 com\example\notification\controller\NotificationController.class
 com\example\notification\service\NotificationAppService.class
+com\example\notification\NotificationServiceApplication.class
+com\example\notification\repository\NotificationRepository.class

@@ -24,17 +24,17 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<Employee>> get(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<Employee>> get(@PathVariable("id") Long id) {
         return ResponseEntity.ok(ApiResponse.ok("Employee fetched", service.get(id)));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse<Employee>> update(@PathVariable Long id, @RequestBody EmployeeDto dto) {
+    public ResponseEntity<ApiResponse<Employee>> update(@PathVariable("id") Long id, @RequestBody EmployeeDto dto) {
         return ResponseEntity.ok(ApiResponse.ok("Employee updated", service.update(id, dto)));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponse<Void>> delete(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<Void>> delete(@PathVariable("id") Long id) {
         service.delete(id);
         return ResponseEntity.ok(ApiResponse.ok("Employee deleted", null));
     }

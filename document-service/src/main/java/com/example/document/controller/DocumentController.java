@@ -28,17 +28,17 @@ public class DocumentController {
     }
 
     @PutMapping("/{id}/verify")
-    public ResponseEntity<ApiResponse<Document>> verify(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<Document>> verify(@PathVariable("id") Long id) {
         return ResponseEntity.ok(ApiResponse.ok("Document verified", service.verify(id)));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<Document>> get(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<Document>> get(@PathVariable("id") Long id) {
         return ResponseEntity.ok(ApiResponse.ok("Document fetched", service.get(id)));
     }
 
     @GetMapping("/employee/{empId}")
-    public ResponseEntity<ApiResponse<List<Document>>> byEmployee(@PathVariable Long empId) {
+    public ResponseEntity<ApiResponse<List<Document>>> byEmployee(@PathVariable("empId") Long empId) {
         return ResponseEntity.ok(ApiResponse.ok("Documents fetched", repository.findByEmployeeId(empId)));
     }
 }

@@ -25,12 +25,12 @@ public class TrainingController {
     }
 
     @GetMapping("/{empId}")
-    public ResponseEntity<ApiResponse<List<Training>>> byEmployee(@PathVariable Long empId) {
+    public ResponseEntity<ApiResponse<List<Training>>> byEmployee(@PathVariable("empId") Long empId) {
         return ResponseEntity.ok(ApiResponse.ok("Training list", service.listByEmployee(empId)));
     }
 
     @PutMapping("/{empId}/complete")
-    public ResponseEntity<ApiResponse<Training>> complete(@PathVariable Long empId) {
+    public ResponseEntity<ApiResponse<Training>> complete(@PathVariable("empId") Long empId) {
         return ResponseEntity.ok(ApiResponse.ok("Training completed", service.complete(empId)));
     }
 }

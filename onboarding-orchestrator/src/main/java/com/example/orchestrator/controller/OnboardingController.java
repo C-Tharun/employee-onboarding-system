@@ -43,7 +43,7 @@ public class OnboardingController {
     }
 
     @PostMapping("/{empId}/document")
-    public ResponseEntity<ApiResponse<Object>> uploadAndVerify(@PathVariable Long empId, @RequestBody DocumentDto doc) {
+    public ResponseEntity<ApiResponse<Object>> uploadAndVerify(@PathVariable("empId") Long empId, @RequestBody DocumentDto doc) {
         doc.setEmployeeId(empId);
         ApiResponse<?> uploaded = restTemplate.postForObject(documentServiceUrl + "/documents/upload", doc, ApiResponse.class);
         Map<?,?> data = (Map<?,?>) uploaded.getData();
@@ -60,7 +60,7 @@ public class OnboardingController {
     }
 
     @PostMapping("/{empId}/training/assign")
-    public ResponseEntity<ApiResponse<Object>> assignTraining(@PathVariable Long empId, @RequestBody TrainingDto training) {
+    public ResponseEntity<ApiResponse<Object>> assignTraining(@PathVariable("empId") Long empId, @RequestBody TrainingDto training) {
         training.setEmployeeId(empId);
         ApiResponse<?> assigned = restTemplate.postForObject(trainingServiceUrl + "/training/assign", training, ApiResponse.class);
 
@@ -74,7 +74,7 @@ public class OnboardingController {
     }
 
     @PutMapping("/{empId}/training/complete")
-    public ResponseEntity<ApiResponse<Object>> completeTraining(@PathVariable Long empId) {
+    public ResponseEntity<ApiResponse<Object>> completeTraining(@PathVariable("empId") Long empId) {
         restTemplate.put(trainingServiceUrl + "/training/" + empId + "/complete", null);
 
         NotificationDto n = new NotificationDto();

@@ -1,6 +1,9 @@
 C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\employee-service\src\main\java\com\example\employee\EmployeeServiceApplication.java
+C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\employee-service\src\main\java\com\example\employee\config\CorsConfig.java
+C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\employee-service\src\main\java\com\example\employee\config\WebServiceConfig.java
 C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\employee-service\src\main\java\com\example\employee\controller\EmployeeController.java
 C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\employee-service\src\main\java\com\example\employee\entity\Employee.java
+C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\employee-service\src\main\java\com\example\employee\soap\EmployeeSoapEndpoint.java
 C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\employee-service\src\main\java\com\example\employee\repository\EmployeeRepository.java
 C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\employee-service\src\main\java\com\example\employee\service\EmployeeService.java
 C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\employee-service\src\main\java\com\example\employee\exception\GlobalExceptionHandler.java

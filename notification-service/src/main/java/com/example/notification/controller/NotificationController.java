@@ -25,7 +25,7 @@ public class NotificationController {
     }
 
     @GetMapping("/{empId}")
-    public ResponseEntity<ApiResponse<List<Notification>>> byEmployee(@PathVariable Long empId) {
+    public ResponseEntity<ApiResponse<List<Notification>>> byEmployee(@PathVariable("empId") Long empId) {
         return ResponseEntity.ok(ApiResponse.ok("Notifications fetched", service.listByEmployee(empId)));
     }
 }

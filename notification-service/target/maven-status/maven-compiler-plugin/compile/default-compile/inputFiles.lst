@@ -1,5 +1,6 @@
 C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\notification-service\src\main\java\com\example\notification\repository\NotificationRepository.java
 C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\notification-service\src\main\java\com\example\notification\entity\Notification.java
 C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\notification-service\src\main\java\com\example\notification\NotificationServiceApplication.java
+C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\notification-service\src\main\java\com\example\notification\config\CorsConfig.java
 C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\notification-service\src\main\java\com\example\notification\service\NotificationAppService.java
 C:\Users\tharu\Employee Onboarding System\employee-onboarding-system\notification-service\src\main\java\com\example\notification\controller\NotificationController.java

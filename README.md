@@ -51,6 +51,9 @@ mvn -pl onboarding-orchestrator spring-boot:run
 
 Ensure MySQL credentials in each module `src/main/resources/application.yml` match your local setup (default `root/root`).
 
+### CORS
+APIs allow requests from the React dev server at `http://localhost:5173`.
+
 ### Endpoints
 - Employee Service (8081)
   - POST `/employees`
@@ -99,9 +102,102 @@ curl -X POST http://localhost:8080/onboarding/1/training/assign \
 curl -X PUT http://localhost:8080/onboarding/1/training/complete
 ```
 
+### SOAP (Employee Service)
+- WSDL: `http://localhost:8081/ws/employee.wsdl`
+- SOAP endpoint URL (POST): `http://localhost:8081/ws`
+
+Samples (Content-Type: text/xml):
+
+GetEmployee
+```
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://example.com/employee/soap">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <emp:getEmployeeRequest>
+      <id>1</id>
+    </emp:getEmployeeRequest>
+  </soapenv:Body>
+  </soapenv:Envelope>
+```
+
+CreateEmployee
+```
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://example.com/employee/soap">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <emp:createEmployeeRequest>
+      <firstName>Ada</firstName>
+      <lastName>Lovelace</lastName>
+      <email>ada.soap@example.com</email>
+    </emp:createEmployeeRequest>
+  </soapenv:Body>
+  </soapenv:Envelope>
+```
+
+UpdateEmployee
+```
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://example.com/employee/soap">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <emp:updateEmployeeRequest>
+      <id>1</id>
+      <firstName>Ada</firstName>
+      <lastName>Lovelace</lastName>
+      <email>ada.soap.updated@example.com</email>
+      <status>REGISTERED</status>
+    </emp:updateEmployeeRequest>
+  </soapenv:Body>
+  </soapenv:Envelope>
+```
+
+DeleteEmployee
+```
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://example.com/employee/soap">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <emp:deleteEmployeeRequest>
+      <id>1</id>
+    </emp:deleteEmployeeRequest>
+  </soapenv:Body>
+  </soapenv:Envelope>
+```
+
+Note: Orchestrator continues to use REST for Employee; SOAP is an additional interface for external/legacy systems.
+
+### Web Portal (React)
+Location: `web-portal/` (Employee Portal + Company Portal, no login).
+
+Run:
+```bash
+cd web-portal
+npm install
+npm run dev
+```
+Open `http://localhost:5173`.
+
+Configure backend URLs (optional via env):
+- `VITE_ORCH_URL` (default `http://localhost:8080`)
+- `VITE_EMP_URL` (default `http://localhost:8081`)
+- `VITE_DOC_URL` (default `http://localhost:8082`)
+- `VITE_TRN_URL` (default `http://localhost:8083`)
+- `VITE_NOTI_URL` (default `http://localhost:8084`)
+
+Employee Portal actions:
+- Start onboarding (creates employee, sends notification)
+- Upload & auto-verify document
+- Assign and Complete training
+- View notifications
+
+Company Portal actions:
+- View employee details, documents, training, and notifications by employee ID
 ### Notes
 - Notifications are mocked: messages are logged and persisted.
 - For demo simplicity, all services share one schema. In production, prefer per-service schemas and API gateways.
+
+### Troubleshooting
+- Use unique emails when starting onboarding to avoid duplicate email errors.
+- If React calls fail, ensure services are running and CORS allows `http://localhost:5173`.
+- Ensure Java runtime matches the compiled version (prefer Java 21+).
 
 
 
